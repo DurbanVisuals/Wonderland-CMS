@@ -1,5 +1,7 @@
 <?php
 
+namespace CMS;
+
 class CMS extends Prefab
 {
 	protected static $config  = [];

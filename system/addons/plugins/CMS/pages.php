@@ -1,6 +1,6 @@
 <?php
 
-namespace Addons\Plugins\Klay;
+namespace Addons\Plugins\CMS;
 
 class Pages
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Addons\Plugins\Klay;
+namespace Addons\Plugins\CMS;
 
 class Search
 {
@@ -10,7 +10,7 @@ class Search
 		if ($app->get('POST.trigger') === 'klay:search:simple') {
 		}
 	}
-	
+
 	public function results($params, $content)
 	{
 		return \Klay\Parse::template($content, $this->searchKeyword($params['keyword']), '\\Klay\\Theme::callback');

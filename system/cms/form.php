@@ -30,7 +30,7 @@ class Form
 						$params['value'] = NULL;
 					}
 					// callback
-					$namespace = '\\Addons\\Fields\\'.ucfirst($type).'\\Field';
+					$namespace = '\\Fields\\'.ucfirst($type).'\\Field';
 					if (method_exists($namespace,'render')) {
 						$field  = new $namespace();
 						$params = $field->render($params);
