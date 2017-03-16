@@ -1,0 +1,39 @@
+# Turn on the Rewrite Engine
+RewriteEngine On
+
+
+# ------------------------------------------------------------------------------
+# RewriteBase
+# ------------------------------------------------------------------------------
+# Ensure this matches your _site_root
+RewriteBase /
+
+
+# ------------------------------------------------------------------------------
+# Only show index.php for admin and for
+# ------------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^/admin/(.*)$ /admin/index.php [L,QSA]
+
+# ------------------------------------------------------------------------------
+# Remove .HTML extension from flat file
+# ------------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/admin/
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# ------------------------------------------------------------------------------
+# Flat file doesn't exist so toss it to wonderland for the 404 error.
+# ------------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /404.html [QSA,L]
+
+# ------------------------------------------------------------------------------
+# Remove Trailing Slashes from URL
+# ------------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\/(\?.*)?$ $1$2 [R=301,L]
+
