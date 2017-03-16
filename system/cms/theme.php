@@ -1,6 +1,6 @@
 <?php
 
-namespace Klay;
+namespace CMS;
 
 class Theme
 {
@@ -9,12 +9,12 @@ class Theme
 		$app = \Base::instance();
 
 		if ($temp = $app->read($theme.$template)) {
-			$template = \Klay\Parse::template(trim($temp), $data, '\\Klay\\Theme::callback', \Klay::dump());
+			$template = \CMS\Parse::template(trim($temp), $data, '\\Klay\\Theme::callback', \Klay::dump());
 		}
 
 		if ($layout = $app->read($theme.$layout)) {
 			$data['_template'] = $template ? $template : 'No Layout Content';
-			$output = \Klay\Parse::template(trim($layout), $data, '\\Klay\\Theme::callback', \Klay::dump());
+			$output = \CMS\Parse::template(trim($layout), $data, '\\Klay\\Theme::callback', \Klay::dump());
 		}
 
 		unset($data['_template']);

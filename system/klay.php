@@ -1,6 +1,6 @@
 <?php
 
-class Klay extends Prefab
+class CMS extends Prefab
 {
 	protected static $config  = [];
 

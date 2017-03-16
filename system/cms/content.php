@@ -1,6 +1,6 @@
 <?php
 
-namespace Klay;
+namespace CMS;
 
 class Content extends \Prefab
 {

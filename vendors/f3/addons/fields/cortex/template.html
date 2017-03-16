@@ -1,8 +1,0 @@
-<label for="{{ id }}">{{ display }}</label>
-<select name="{{ name }}" class="form-control {{ class }}" id="{{ id }}">
-	<option value="" default {{ if !value }}selected{{ endif }}>Choose&hellip;</option>
-	{{ options }}<option value="{{ option }}"{{ if is_selected }} selected{{ endif }}>{{ label }}</option>{{ /options }}
-</select>
-{{ if help }}
-<span class="help-block">{{ help }}</span>
-{{ endif }}

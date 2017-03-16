@@ -1,10 +1,10 @@
 <?php
 
-$app = require('base/base.php');
+$app = require(F3.'/base.php');
 
-$app->set('SYSTEM', str_replace(ROOT,'',SYSTEM));
+$app->set('SYSTEM', SYSTEM);
 
-$app->config($app->get('SYSTEM').'klay/config.ini', true);
+$app->config(SYSTEM.'cms/config.ini', true);
 
 new Session(NULL,'CSRF',new Cache('folder=cache/sessions/'));
 
