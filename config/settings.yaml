@@ -1,0 +1,14 @@
+site_name: Klay CMS
+
+bcrypt_salt: adsf8uy3h13ksdh81039uj
+bcrypt_cost: 10
+
+allow_php: false
+
+environment:
+    local:
+        - http://localhost*
+        - *.localip
+        - *.dev
+    live:
+        - *.com
