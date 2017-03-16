@@ -100,7 +100,7 @@ final class Base extends Prefab implements ArrayAccess {
 		//! Default directory permissions
 		MODE=0755,
 		//! Syntax highlighting stylesheet
-		CSS='code.css';
+		CSS='inc/css/code.css';
 
 	//@{ Request types
 	const
@@ -220,6 +220,18 @@ final class Base extends Prefab implements ArrayAccess {
 				$out[$pair[1]]=trim($pair[3]);
 		return $out;
 	}
+
+	/**
+	*	Check a glob pattern against a string
+	*	@return bool
+	*   @param $ptr string (exam*)
+	*	@param $str string (example)
+	**/
+	function matches($pattern, $str)
+    {
+        $pattern = ($pattern !== "/") ? str_replace('*', '(.*)', $pattern) . '\z' : '^/$';
+        return (bool) preg_match('#' . $pattern . '#', $str);
+    }
 
 	/**
 	*	Convert JS-style token to PHP expression
@@ -387,7 +399,7 @@ final class Base extends Prefab implements ArrayAccess {
 					unset($ref);
 				}
 			break;
-		case 'TZ':
+		case 'TIMEZONE':
 			date_default_timezone_set($val);
 			break;
 		}
@@ -2305,7 +2317,7 @@ final class Base extends Prefab implements ArrayAccess {
 			'SERIALIZER'=>extension_loaded($ext='igbinary')?$ext:'php',
 			'TEMP'=>'tmp/',
 			'TIME'=>&$_SERVER['REQUEST_TIME_FLOAT'],
-			'TZ'=>@date_default_timezone_get(),
+			'TIMEZONE'=>@date_default_timezone_get(),
 			'UI'=>'./',
 			'UNLOAD'=>NULL,
 			'UPLOADS'=>'./',
@@ -2332,7 +2344,7 @@ final class Base extends Prefab implements ArrayAccess {
 			// Error detected
 			$this->error(500,
 				sprintf(self::E_Fatal,$error['message']),[$error]);
-		date_default_timezone_set($this->hive['TZ']);
+		date_default_timezone_set($this->hive['TIMEZONE']);
 		// Register framework autoloader
 		spl_autoload_register([$this,'autoload']);
 		// Register shutdown handler
