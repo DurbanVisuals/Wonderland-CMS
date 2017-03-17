@@ -3,9 +3,10 @@
 $app = require(F3.'/base.php');
 $app->set('DEBUG',4);
 $app->set('SYSTEM', SYSTEM);
-echo ROOT.'config/config.ini';
-$app->config(ROOT.'config/config.ini', true);
-
-new Session(NULL,'CSRF',new Cache('folder=cache/sessions/'));
-
+$cfg = ROOT.'config/config.ini';
+echo $cfg;
+$app->config($cfg, true);
+$authors = !$app->devoid('AUTHORS')?true:false;
+echo $authors?"<br/>Config set":"<br/>Config NOT set";
+new Session(NULL,'CSRF',new Cache('folder='.ROOT.'/cache/sessions/'));
 $app->run();
