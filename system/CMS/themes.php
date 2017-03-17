@@ -2,7 +2,7 @@
 
 namespace CMS;
 
-class Theme
+class Themes
 {
 	public static function assemble($theme, $layout, $template = NULL, $data = [])
 	{
