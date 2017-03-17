@@ -1,11 +1,11 @@
 <?php
 
 $app = require(F3.'/base.php');
-
+$app->set('DEBUG',4);
 $app->set('SYSTEM', SYSTEM);
-
-$app->config(SYSTEM.'cms/config.ini', true);
+echo ROOT.'config/config.ini';
+$app->config(ROOT.'config/config.ini', true);
 
 new Session(NULL,'CSRF',new Cache('folder=cache/sessions/'));
 
-Klay::instance()->start();
+$app->run();

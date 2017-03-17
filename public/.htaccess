@@ -15,13 +15,16 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule ^/admin/(.*)$ /admin/index.php [L,QSA]
+RewriteCond %{REQUEST_URI} /admin/ [OR]
+RewriteCond %{REQUEST_URI} /json/
+RewriteRule ^(.*)$ /admin/index.php [L,QSA]
 
 # ------------------------------------------------------------------------------
 # Remove .HTML extension from flat file
 # ------------------------------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !/admin/
+RewriteCond %{REQUEST_URI} !/json/
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 # ------------------------------------------------------------------------------

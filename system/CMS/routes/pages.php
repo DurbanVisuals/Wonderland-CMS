@@ -39,7 +39,7 @@ class Pages
 		$data = $this->page;
 		$layout = 'layouts/'.$this->page['layout'];
 		$template = $this->page['template'] ? 'templates/'.$this->page['template'] : NULL;
-		echo \Klay\Theme::assemble($app->get('THEME'), $layout, $template, $data);
+		echo \CMS\Theme::assemble($app->get('THEME'), $layout, $template, $data);
 	}
 
 	public function afterRoute($app, $params)
