@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if title }}{{ title }} | {{ endif }}{{ site_name }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    {{ klay:theme:css src="main.min.css?v={{ current_time }}" }}
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+        <div class="container text-uppercase">
+            <div class="col-sm-3">
+                <h1>Klay<strong>CMS</strong></h1>
+            </div>
+            <div class="col-sm-9">
+                <nav class="navbar" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href=""><i class="fa fa-sign-in"></i> Sign-In</a></li>
+                            <li><a href=""><i class="fa fa-at"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <aside class="col-md-4 col-lg-3">
+                <nav id="menu">
+                    <ul>
+                        {{ klay:structure }}
+                            <li>
+                                <a href="{{ route }}"{{ if active }} class="active"{{ endif }}>{{ title }}</a>
+                                {{ if pages }}
+                                <ul>{{ *recursive pages* }}</ul>
+                                {{ endif }}
+                            </li>
+                        {{ /klay:structure }}
+                    </ul>
+                </nav>
+            </aside>
+            <article class="col-md-8 col-lg-9">
+                {{ _template }}
+            </article>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    {{ klay:theme:css src="main.min.css?v={{ current_time }}" }}
+  </body>
+</html>

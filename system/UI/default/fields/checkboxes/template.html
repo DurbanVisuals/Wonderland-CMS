@@ -1,0 +1,12 @@
+<label for="{{ id }}">{{ display }}</label>
+<div id="{{ id }}" class="{{ class }}">
+	<input type="hidden" name="{{ name }}" value="">
+	{{ options }}
+	<label class="checkbox-inline">
+		<input type="checkbox" name="{{ name }}[]" value="{{ option }}"{{ if is_selected }} checked{{ endif }}> {{ label }}
+	</label>
+	{{ /options }}
+</div>
+{{ if help }}
+<span class="help-block">{{ help }}</span>
+{{ endif }}

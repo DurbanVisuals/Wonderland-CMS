@@ -1,0 +1,40 @@
+<header class="page-header">
+	<h1>{{ title }}</h1>
+</header>
+{{ content }}
+{{ if global_variables }}
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th width="33%">Variable</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ global_variables }}
+			<tr>
+				<td><strong>{{noparse}}{{ {{/noparse}}{{ variable }}{{noparse}} }}{{/noparse}}</strong></td>
+				<td><em>{{ description }}</em></td>
+			</tr>
+			{{ /global_variables }}
+		</tbody>
+	</table>
+{{ endif }}
+{{ if content_variables }}
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th width="33%">Variable</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ content_variables }}
+			<tr>
+				<td><strong>{{noparse}}{{ {{/noparse}}{{ variable }}{{noparse}} }}{{/noparse}}</strong></td>
+				<td><em>{{ description }}</em></td>
+			</tr>
+			{{ /content_variables }}
+		</tbody>
+	</table>
+{{ endif }}

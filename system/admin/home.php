@@ -11,6 +11,6 @@ namespace admin;
 
 class home  extends \Prefab {
     public function index() {
-        echo \View::instance()->render( 'index.php' );
+        echo \View::instance()->render( 'admin/index.php' );
     }
 }
