@@ -8,12 +8,12 @@ class Pages
 	{
 		$app = \Base::instance();
 		$include = $params['include'] ? $app->split($params['include']) : ['*'];
-		$data = \Klay\Content::loadPage($params['route'],$include);
+		$data = \CMS\Content::loadPage($params['route'],$include);
 		if (!$data) {
 			$data = [
 				'no_content' => TRUE,
 			];
 		}
-		return \Klay\Parse::template($content, $data, '\\Klay\\Theme::callback');
+		return \CMS\Parse::template($content, $data, '\\Klay\\Theme::callback');
 	}
 }

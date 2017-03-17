@@ -1,6 +1,6 @@
 <?php
 
-namespace Routes;
+namespace CMS;
 
 class Pages
 {
@@ -17,7 +17,7 @@ class Pages
 		// access instance
 		$this->access = \Access::instance();
 		// load page
-		$this->page = \Klay\Content::loadRoute($app->get('PATH'));
+		$this->page = \CMS\Content::loadRoute($app->get('PATH'));
 		// throw 404 if no content
 		if (!$this->page) {
 			$app->error(404);

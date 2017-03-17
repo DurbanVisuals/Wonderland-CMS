@@ -13,7 +13,7 @@ class Search
 
 	public function results($params, $content)
 	{
-		return \Klay\Parse::template($content, $this->searchKeyword($params['keyword']), '\\Klay\\Theme::callback');
+		return \CMS\Parse::template($content, $this->searchKeyword($params['keyword']), '\\Klay\\Theme::callback');
 	}
 
 	private function searchKeyword($keyword)

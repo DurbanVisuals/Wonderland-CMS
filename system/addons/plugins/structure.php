@@ -11,7 +11,7 @@ class Structure
 		$search = implode('/*',$segs).'*.md';
 		$fields = $params['include'] ? \Base::instance()->split($params['include']) : ['title'];
 
-		$pages  = \Klay\Content::routeStructure($search,$fields);
+		$pages  = \CMS\Content::routeStructure($search,$fields);
 
 		$output = '';
 		if (!empty($pages)) {
